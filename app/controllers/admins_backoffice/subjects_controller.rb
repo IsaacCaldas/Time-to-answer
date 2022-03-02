@@ -3,10 +3,10 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   before_action :set_subject, only: [:edit, :update, :destroy]
 
   def index
-    @subjects = Subject.all.page(params[:page]).per(5)
+    @subjects = Subject.all.order(:description).page(params[:page]).per(15)
   end
 
-  def new 
+  def new     
     @subject = Subject.new
   end
 
