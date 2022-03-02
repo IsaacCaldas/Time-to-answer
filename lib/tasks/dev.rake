@@ -1,6 +1,7 @@
 namespace :dev do
 
   DEFAULT_PASSWORD = 123123
+  DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
 
   desc "Setting the development's environment"
   task setup: :environment do
@@ -13,7 +14,7 @@ namespace :dev do
       show_spinner("Migrating database", "Migrated database") { %x(rails db:migrate) }
       
       puts "Seeding database..."
-      show_spinner("Seeding database", "Database seeded") { %x(rails dev:add_default_admin dev:add_extras_admins dev:add_default_user) } 
+      show_spinner("Seeding database", "Database seeded") { %x(rails dev:add_default_admin dev:add_extras_admins dev:add_default_user dev:add_subjects) } 
 
       puts ""
       spinner = TTY::Spinner.new("[:spinner] Finishing tasks...")
@@ -51,6 +52,15 @@ namespace :dev do
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD
     )
+  end
+
+  desc "Adiciona assuntos padrão"
+    task add_subjects: :environment do
+    file_name = 'subjects.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
+    File.open(file_path, 'r').each do |line|
+      Subject.create!(description: line.strip)
+    end
   end
 
   private
