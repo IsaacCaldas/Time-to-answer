@@ -14,7 +14,7 @@ namespace :dev do
       show_spinner("Migrating database", "Migrated database") { %x(rails db:migrate) }
       
       puts "Seeding database..."
-      show_spinner("Seeding database", "Database seeded") { %x(rails dev:add_default_admin dev:add_extras_admins dev:add_default_user dev:add_subjects) } 
+      show_spinner("Seeding database", "Database seeded") { %x(rails dev:add_default_admin dev:add_extras_admins dev:add_default_user dev:add_subjects dev:add_questions) } 
 
       puts ""
       spinner = TTY::Spinner.new("[:spinner] Finishing tasks...")
@@ -60,6 +60,20 @@ namespace :dev do
     file_path = File.join(DEFAULT_FILES_PATH, file_name)
     File.open(file_path, 'r').each do |line|
       Subject.create!(description: line.strip)
+    end
+  end
+
+  desc "Adiciona perguntas e respostas"
+    task add_questions: :environment do
+    file_name = 'subjects.txt'
+    
+    Subject.all.each do |subject|
+      rand(5..10).times do |i|
+      Question.create!(
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject
+        )
+      end
     end
   end
 

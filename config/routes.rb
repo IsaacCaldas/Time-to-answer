@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'welcome/index' # Dashboard
     resources :admins # Admins
     resources :subjects # Subjects
+    resources :questions # Questions
   end
   
   devise_for :admins
