@@ -13,7 +13,7 @@ namespace :dev do
       show_spinner("Migrating database", "Migrated database") { %x(rails db:migrate) }
       
       puts "Seeding database..."
-      show_spinner("Seeding database", "Database seeded") { %x(rails dev:add_default_admin dev:add_default_user) } 
+      show_spinner("Seeding database", "Database seeded") { %x(rails dev:add_default_admin dev:add_extras_admins dev:add_default_user) } 
 
       puts ""
       spinner = TTY::Spinner.new("[:spinner] Finishing tasks...")
@@ -27,18 +27,29 @@ namespace :dev do
   desc "Adiciona o administrador padrão"
   task add_default_admin: :environment do
     Admin.create!(
-    email: 'admin@admin.com',
-    password: DEFAULT_PASSWORD,
-    password_confirmation: DEFAULT_PASSWORD
+      email: 'admin@admin.com',
+      password: DEFAULT_PASSWORD,
+      password_confirmation: DEFAULT_PASSWORD
     )
+  end
+
+  desc "Adiciona o administrador extras"
+  task add_extras_admins: :environment do
+    10.times do |i|
+      Admin.create!(
+        email: Faker::Internet.email,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD
+      )
+    end
   end
 
   desc "Adiciona o usuário padrão"
   task add_default_user: :environment do
     User.create!(
-    email: 'user@user.com',
-    password: DEFAULT_PASSWORD,
-    password_confirmation: DEFAULT_PASSWORD
+      email: 'user@user.com',
+      password: DEFAULT_PASSWORD,
+      password_confirmation: DEFAULT_PASSWORD
     )
   end
 

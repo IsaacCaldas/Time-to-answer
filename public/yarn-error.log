@@ -1,0 +1,36 @@
+Arguments: 
+  /home/isaac/.nvm/versions/node/v16.13.2/bin/node /home/isaac/.nvm/versions/node/v16.13.2/bin/yarn init
+
+PATH: 
+  /home/isaac/.rbenv/plugins/ruby-build/bin:/home/isaac/.rbenv/shims:/home/isaac/.rbenv/bin:/home/isaac/.nvm/versions/node/v16.13.2/bin:/usr/local/bin:/usr/local/sbin:/home/isaac/.rvm/gems/ruby-2.5.8/bin:/home/isaac/.rvm/gems/ruby-2.5.8@global/bin:/home/isaac/.rvm/rubies/ruby-2.5.8/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/isaac/.rvm/bin:/home/isaac/.yadr/bin:/home/isaac/.yadr/bin/yadr:/home/isaac/.rvm/bin:/home/isaac/.rvm/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/home/isaac/.nvm/versions/node/v16.13.2/lib/node_modules/yarn/lib/cli.js:137143:13)
+      at Interface.emit (node:events:390:28)
+      at Interface._ttyWrite (node:readline:1081:16)
+      at ReadStream.onkeypress (node:readline:288:10)
+      at ReadStream.emit (node:events:390:28)
+      at emitKeys (node:internal/readline/utils:358:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
+      at ReadStream.emit (node:events:390:28)
+      at addChunk (node:internal/streams/readable:315:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
