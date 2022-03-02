@@ -21,5 +21,13 @@ aria-hidden="true">×</button>
     <%= form.label :description %>
     <%= form.text_area :description, class:'form-control', placeholder:"Question", rows:5 %>
   </div>
+
+  <div id='answers'>
+    <%= form.fields_for :answers do |answer| %>
+      <%= render partial: 'answer_fields', locals: { f: answer } %>
+    <% end %>
+    <%= link_to_add_association "Adicionar resposta", form, :answers %>
+  </div>
+
   <button type="submit" class="btn btn-default">Submit</button>
 <% end %>
