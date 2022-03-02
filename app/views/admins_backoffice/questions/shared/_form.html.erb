@@ -1,5 +1,5 @@
-<h1><%= action_msg %> - Question </h1> <br/>
-<%= t('message.listing', model: @subjects.model_name.human(count: 2)) %>
+<h1><%= action_msg %> <%= @question.model_name.human %></h1> <br/>
+
 <% if @question.errors.any? %>
   <button type="button" class="close" data-dismiss="alert"
 aria-hidden="true">×</button>

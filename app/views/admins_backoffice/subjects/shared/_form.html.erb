@@ -1,4 +1,4 @@
-<h1><%= action_msg %> - Subject </h1> <br/>
+<h1><%= action_msg %> <%= @subject.model_name.human %></h1> <br/>
 
 <% if @subject.errors.any? %>
   <button type="button" class="close" data-dismiss="alert"
