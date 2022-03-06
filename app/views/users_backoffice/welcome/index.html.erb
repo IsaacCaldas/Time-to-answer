@@ -1,1 +1,34 @@
-<h1>UsersBackoffice::Welcome#index</h1>
+<h1>Seja bem vindo!</h1>
+
+<% unless @user_statistic.blank? %>
+  <div class="row">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-comments-o"></i>
+      </div>
+      <div class="count"><%= @user_statistic.total_questions %></div>
+      <h3>Total</h3>
+      <p>Total de questões respondidas.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="color: #02d12e">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-check" style="color: #02d12e"></i>
+      </div>
+      <div class="count"><%= @user_statistic.right_questions %></div>
+      <h3 style="color: #02d12e">Total</h3>
+      <p>Total de respostas certas.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" style="color: #ec520f">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-close" style="color: #ec520f"></i>
+      </div>
+      <div class="count"><%= @user_statistic.wrong_questions %></div>
+      <h3 style="color: #ec520f">Total</h3>
+      <p>Total de respostas erradas.</p>
+    </div>
+  </div>
+<% end %>
