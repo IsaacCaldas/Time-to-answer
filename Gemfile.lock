@@ -88,6 +88,7 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hiredis (0.6.3)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.1)
@@ -173,6 +174,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.6.0)
     regexp_parser (2.2.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -208,6 +210,8 @@ GEM
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    trix (0.10.1)
+      rails
     ttfunk (1.7.0)
     tty-cursor (0.7.1)
     tty-spinner (0.9.3)
@@ -241,6 +245,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (= 4.5.0)
   faker
+  hiredis
   i18n
   jbuilder (~> 2.5)
   kaminari
@@ -249,11 +254,13 @@ DEPENDENCIES
   prawn-rails
   puma (~> 3.11)
   rails (~> 5.2.6, >= 5.2.6.2)
+  redis
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  trix
   tty-spinner
   tzinfo-data
   uglifier (>= 1.3.0)
