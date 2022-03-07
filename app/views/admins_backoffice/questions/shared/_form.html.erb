@@ -19,7 +19,8 @@ aria-hidden="true">×</button>
   </div>
   <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, class:'form-control', placeholder:"Question", rows:5 %>
+    <%= form.hidden_field :description, class:'form-control', placeholder:"Question", rows:5 %>
+    <trix-editor input='question_description'></trix-editor>
   </div>
 
   <div id='answers'>
