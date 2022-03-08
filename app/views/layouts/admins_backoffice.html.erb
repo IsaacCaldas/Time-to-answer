@@ -38,7 +38,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin BackOffice</a>
+                <%= link_to "Admin BackOffice", admins_backoffice_welcome_index_path, class:"navbar-brand" %>
+                
             </div>
             <!-- /.navbar-header -->
 
@@ -83,6 +84,11 @@
                         <li>
                             <%= link_to admins_backoffice_questions_path do %>
                                 <i class="fa fa-th-list fa-fw"></i> Questions</a>
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to root_path do %>
+                                <i class="fa fa-check fa-fw"></i> Voltar as questões</a>
                             <% end %>
                         </li>
                     </ul>

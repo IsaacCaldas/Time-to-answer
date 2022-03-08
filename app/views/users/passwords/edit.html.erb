@@ -1,25 +1,30 @@
-<h2>Change your password</h2>
+<div>
+  <div class="login_wrapper">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+    <div class="animate form login_form">
+      <section class="login_content">
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+        <h1> Altere sua senha </h1>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.hidden_field :reset_password_token %>
+
+          <div class="field">
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder:'Digite sua nova senha', class:"form-control"  %>
+          </div>
+        
+          <div class="field">
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:'Confirme sua nova senha', class:"form-control" %>
+          </div>
+
+          <div>
+            <%= f.submit "Alterar senha", class:"btn btn-default submit", style:"float: none; margin-left: 0px; background-color: #6aaaaa; color: white; border: none" %>
+          </div>
+
+          <div class="clearfix"></div>
+          <div class="separator"></div>
+        <% end %>
+      </section>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
