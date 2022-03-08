@@ -1,10 +1,10 @@
-var btn = document.getElementById('submit_<%= @answer.question_id %>')
+var btn = document.getElementById('submit_<%= @question_id %>')
 
 btn.classList.remove('btn-default')
 btn.classList.remove('btn-success')
 btn.classList.remove('btn-danger')
 
-if(<%= @answer.correct %>){
+if(<%= @correct %>){
   btn.classList.add('btn-success')
   $.bootstrapGrowl('Você acertou! \\o/', {
     type: 'success',
