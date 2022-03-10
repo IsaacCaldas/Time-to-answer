@@ -41,10 +41,10 @@
               <%= link_to "Buscar", users_backoffice_zip_code_path, remote:true, class:"btn btn-primary", id:'zip-code-link' %>
               
               <script>
+                let zip_code_input = document.getElementById("user_user_profile_attributes_zip_code");
                 var zip_code_link = document.getElementById("zip-code-link");
-                let zip_code_input =
-                document.getElementById("user_user_profile_attributes_zip_code");
-                zip_code_input.addEventListener("change", function () {
+
+                zip_code_input.addEventListener("change", function(){
                   zip_code_link.href = '<%= users_backoffice_zip_code_path %>/?zip_code='+zip_code_input.value;
                 });
               </script>

@@ -9,13 +9,13 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
 
   def update
     if @user.update(params_user)
-    bypass_sign_in(@user)
+      bypass_sign_in(@user)
       unless params_user[:user_profile_attributes][:avatar]
         redirect_to users_backoffice_profile_path, notice: "Usuário atualizado com sucesso!"
-      end
+      end    
     else
       render :edit
-    end
+    end    
   end
 
   private
